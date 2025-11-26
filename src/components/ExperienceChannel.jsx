@@ -89,7 +89,7 @@ const ExperienceChannel = () => {
               <li><strong>Automation:</strong> Automated e-certificate distribution, cutting manual workload by 80%.</li>
             </ul>
             <div className="mt-2 text-xs">
-              <span className="text-d-text-link cursor-pointer hover:underline">#hishot-landing</span> 
+              <span className="text-d-text-link cursor-pointer hover:underline">#hishot-2024-landing</span> 
               <span className="text-d-text-muted"> (See the project details)</span>
             </div>
           </DiscordEmbed>

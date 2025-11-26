@@ -103,23 +103,57 @@ const WelcomeChannel = () => {
                   </p>
                   
                   <div className="grid gap-2 ml-1 border-l-2 border-d-background-secondary pl-3">
+
+                     {/* Helpdesk */}
                     <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1 text-sm text-d-text-normal">
-                          <span className="text-d-text-link hover:underline cursor-pointer font-medium">
+                        <span className="text-d-text-link hover:underline cursor-pointer font-medium whitespace-nowrap">
+                            #dentalign-helpdesk
+                        </span> 
+                        <span className="text-d-text-muted text-xs sm:text-sm"> 
+                            - Enterprise Ticketing (MERN) 🦷
+                        </span>
+                    </div>
+                    
+                    {/* Shoply */}
+                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1 text-sm text-d-text-normal">
+                        <span className="text-d-text-link hover:underline cursor-pointer font-medium whitespace-nowrap">
                             #shoply
-                          </span> 
-                          <span className="text-d-text-muted text-xs sm:text-sm"> 
-                            - E-commerce platform case study.
-                          </span>
+                        </span> 
+                        <span className="text-d-text-muted text-xs sm:text-sm"> 
+                            - Full-stack E-commerce & 3NF DB
+                        </span>
                     </div>
+
+                    {/* HiShot */}
                     <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1 text-sm text-d-text-normal">
-                          <span className="text-d-text-link hover:underline cursor-pointer font-medium">
-                            #project-beta
-                          </span> 
-                          <span className="text-d-text-muted text-xs sm:text-sm"> 
-                            - (Description of next project).
-                          </span>
+                        <span className="text-d-text-link hover:underline cursor-pointer font-medium whitespace-nowrap">
+                            #hishot-2024-landing
+                        </span> 
+                        <span className="text-d-text-muted text-xs sm:text-sm"> 
+                            - Cyber Sec Event Landing Page 🔐
+                        </span>
                     </div>
-                  </div>
+
+                    {/* Bot Detection */}
+                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1 text-sm text-d-text-normal">
+                        <span className="text-d-text-link hover:underline cursor-pointer font-medium whitespace-nowrap">
+                            #bot-detection
+                        </span> 
+                        <span className="text-d-text-muted text-xs sm:text-sm"> 
+                            - ML Classification in Python 🐍
+                        </span>
+                    </div>
+
+                    {/* Pathfinding */}
+                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1 text-sm text-d-text-normal">
+                        <span className="text-d-text-link hover:underline cursor-pointer font-medium whitespace-nowrap">
+                            #pathfinding
+                        </span> 
+                        <span className="text-d-text-muted text-xs sm:text-sm"> 
+                            - Evacuation Algo (Python/Pygame) 🧠
+                        </span>
+                    </div>
+                </div>
               </div>
             </DiscordEmbed>
         </Message>
