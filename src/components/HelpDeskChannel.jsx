@@ -9,6 +9,7 @@ import DateDivider from './DateDivider';
 import kevinAvatar from '../assets/kevin_pfp.jpg'; 
 import dashboardVisual from '../assets/projects/dentalign/dashboard_dentalign.png';
 import loginVisual from '../assets/projects/dentalign/login_dentalign.png'
+import dentalignReport from '../assets/projects/dentalign/dentalignReport.pdf'
 
 const HelpDeskChannel = () => {
   return (
@@ -132,8 +133,8 @@ const HelpDeskChannel = () => {
 
          <FileAttachment 
             fileName="Dentalign_System_Docs.pdf"
-            fileSize="3.5 MB"
-            fileUrl="/assets/dentalign_docs.pdf"
+            fileSize="4.7 MB"
+            fileUrl={dentalignReport}
             type="pdf"
          />
       </Message>
