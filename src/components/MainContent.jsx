@@ -10,12 +10,34 @@ import HishotChannel from './HishotChannel';
 import BotDetectionChannel from './BotDetectionChannel';
 import PathFindingChannel from './PathFindingChannel';
 
-const MainContent = ({ activeChannel, toggleMenu, toggleMembers }) => {
+const MainContent = ({ activeChannel, toggleMenu, toggleMembers, isLeftMenuOpen, isRightMenuOpen }) => {
 
   // Checking for swipes
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => toggleMembers(), // swipe left -> open members sidebar
-    onSwipedRight: () => toggleMenu(), // swipe right -> open server and channel sidebar
+    onSwipedLeft: () => {
+      if (isLeftMenuOpen) {
+        // Left menu open → close left menu
+        toggleMenu();
+        return;
+      }
+
+      if (!isRightMenuOpen) {
+        // Right menu closed → open right menu
+        toggleMembers();
+      }
+    }, 
+    onSwipedRight: () => {
+      if (isRightMenuOpen) {
+        // Right menu is open → close it
+        toggleMembers();
+        return;
+      }
+
+      if (!isLeftMenuOpen) {
+        // Left menu is closed → open it
+        toggleMenu();
+      }
+    }, 
     delta: 40, // amount of pixels the swipe need to do to activate
     trackTouch: true, // only track swipe in mobile
     trackMouse: false,
