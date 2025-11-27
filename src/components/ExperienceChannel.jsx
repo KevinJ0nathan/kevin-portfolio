@@ -105,7 +105,7 @@ const ExperienceChannel = () => {
           <DiscordEmbed 
             title="Barista (Intern)" 
             subtitle="Kopi Soe"             
-            date="Jakarta, Indonesia"      
+            date="Dec 2025"      
             color="#B07D62"
             image={kopiSoeImage}
           >
