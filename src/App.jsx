@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useSwipeable } from "react-swipeable";
+
 import ChannelList from './components/ChannelList'
 import MainContent from './components/MainContent'
 import MemberList from './components/MemberList'
@@ -25,6 +27,19 @@ function App() {
     setActiveChannel(channel);
     closeAllMenus();
   }
+
+  const leftSidebarSwipe = useSwipeable({
+    onSwipedLeft: () => setIsLeftMenuOpen(false),    // close left
+    trackTouch: true,
+    trackMouse: false,
+  });
+
+  const rightSidebarSwipe = useSwipeable({
+    onSwipedRight: () => setIsRightMenuOpen(false),  // close right
+    trackTouch: true,
+    trackMouse: false,
+  });
+
   return (
     <>
       <div className='flex h-screen overflow-hidden bg-d-background-primary font-sans text-white'>
@@ -48,7 +63,7 @@ function App() {
       )}
 
       {/* 2. LEFT DRAWER (Server + Channel List) */}
-      <div className={`fixed inset-y-0 left-0 z-50 flex w-[300px] transition-transform duration-300 md:hidden ${isLeftMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div {...leftSidebarSwipe} className={`fixed inset-y-0 left-0 z-50 flex w-[300px] transition-transform duration-300 md:hidden ${isLeftMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         {/* Mobile Server List */}
         <div className="h-full flex-shrink-0">
            <ServerList />
@@ -63,7 +78,7 @@ function App() {
       </div>
 
       {/* 3. RIGHT DRAWER (Member List) */}
-      <div className={`fixed inset-y-0 right-0 z-50 w-[240px] bg-[#2f3136] transition-transform duration-300 lg:hidden ${isRightMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div  {...rightSidebarSwipe} className={`fixed inset-y-0 right-0 z-50 w-[240px] bg-[#2f3136] transition-transform duration-300 lg:hidden ${isRightMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <MemberList />
       </div>
       </div>
