@@ -34,8 +34,7 @@ const MainContent = ({ activeChannel, toggleMenu, toggleMembers }) => {
   const description = channelDescriptions[activeChannel] || channelDescriptions["default"];
 
   return (
-    <div className="flex-1 bg-d-background-primary flex flex-col h-dvh min-w-0 relative transition-all duration-300">
-        {...swipeHandlers} 
+    <div {...swipeHandlers} className="flex-1 bg-d-background-primary flex flex-col h-dvh min-w-0 relative transition-all duration-300">
         {/* --- HEADER --- */}
         <div className="h-12 border-b border-d-background-tertiary flex items-center px-4 shadow-sm flex-shrink-0 justify-between bg-d-background-primary z-10">
           
