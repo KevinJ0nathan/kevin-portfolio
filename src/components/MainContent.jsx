@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaBars, FaUserFriends } from "react-icons/fa"; 
+import { useSwipeable } from "react-swipeable"
+
 import WelcomeChannel from './WelcomeChannel';
 import ShoplyChannel from './ShoplyChannel';
 import ExperienceChannel from './ExperienceChannel';
@@ -9,6 +11,15 @@ import BotDetectionChannel from './BotDetectionChannel';
 import PathFindingChannel from './PathFindingChannel';
 
 const MainContent = ({ activeChannel, toggleMenu, toggleMembers }) => {
+
+  // Checking for swipes
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => toggleMembers(), // swipe left -> open members sidebar
+    onSwipedRight: () => toggleMenu(), // swipe right -> open server and channel sidebar
+    delta: 40, // amount of pixels the swipe need to do to activate
+    trackTouch: true, // only track swipe in mobile
+    trackMouse: false,
+  });
   
   const channelDescriptions = {
     "welcome-and-about": "Learn more about Kevin and his journey",
@@ -23,8 +34,8 @@ const MainContent = ({ activeChannel, toggleMenu, toggleMembers }) => {
   const description = channelDescriptions[activeChannel] || channelDescriptions["default"];
 
   return (
-    <div className="flex-1 bg-d-background-primary flex flex-col h-full min-w-0 relative transition-all duration-300">
-        
+    <div className="flex-1 bg-d-background-primary flex flex-col h-dvh min-w-0 relative transition-all duration-300">
+        {...swipeHandlers} 
         {/* --- HEADER --- */}
         <div className="h-12 border-b border-d-background-tertiary flex items-center px-4 shadow-sm flex-shrink-0 justify-between bg-d-background-primary z-10">
           
