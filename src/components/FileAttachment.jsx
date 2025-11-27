@@ -4,13 +4,42 @@ import { FaFilePdf, FaFileAlt, FaDownload } from "react-icons/fa";
 const FileAttachment = ({ fileName, fileSize, fileUrl, type = "pdf" }) => {
 
   const getIcon = () => {
-    // Shared classes for responsive sizing: 8 on mobile, 10 on desktop
     const baseClasses = "w-8 h-8 md:w-10 md:h-10";
-    
     switch (type) {
       case 'pdf': return <FaFilePdf className={`text-red-500 ${baseClasses}`} />;
       case 'code': return <FaFileAlt className={`text-blue-400 ${baseClasses}`} />;
       default: return <FaFileAlt className={`text-gray-400 ${baseClasses}`} />;
+    }
+  };
+
+  // New function to handle the download manually
+  const handleDownload = async (e) => {
+    e.preventDefault(); // Stop the default link behavior
+    
+    try {
+      // 1. Fetch the data
+      const response = await fetch(fileUrl);
+      
+      // 2. Get the Blob (file data)
+      const blob = await response.blob();
+      
+      // 3. Create a temporary local URL for that blob
+      const blobUrl = window.URL.createObjectURL(blob);
+      
+      // 4. Create a hidden link, click it, and remove it
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = fileName; 
+      document.body.appendChild(link);
+      link.click();
+      
+      // 5. Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error("Download failed", error);
+      // Fallback: If fetch fails (e.g. strict CORS), open in new tab
+      window.open(fileUrl, '_blank');
     }
   };
 
@@ -20,17 +49,9 @@ const FileAttachment = ({ fileName, fileSize, fileUrl, type = "pdf" }) => {
       bg-d-background-secondary 
       border border-d-background-tertiary hover:border-d-background-tertiary/80 
       transition-colors group cursor-pointer 
-      
-      /* --- Responsive Width Controls --- */
-      w-full md:w-fit          /* Full width on mobile, fit content on desktop */
-      max-w-full md:max-w-sm   /* Prevent overflow */
-      min-w-0 md:min-w-[250px] /* Remove min-width constraint on mobile */
-      
-      /* --- Spacing --- */
-      p-2 md:p-3               /* Smaller padding on mobile */
-      rounded 
+      w-full md:w-fit max-w-full md:max-w-sm min-w-0 md:min-w-[250px]
+      p-2 md:p-3 rounded
     ">
-
       {/* Icon Section */}
       <div className="mr-3 md:mr-4 flex-shrink-0">
         {getIcon()}
@@ -45,10 +66,10 @@ const FileAttachment = ({ fileName, fileSize, fileUrl, type = "pdf" }) => {
         </span>
       </div>
 
-      {/* Download Icon */}
+      {/* Download Icon - Updated with onClick */}
       <a
         href={fileUrl}
-        download={fileName}
+        onClick={handleDownload} 
         className="
           flex-shrink-0 p-2 
           hover:bg-d-background-tertiary 
