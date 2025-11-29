@@ -33,7 +33,7 @@ const PathFindingChannel = () => {
          <p className="font-bold text-lg text-white mb-2">Project Brief: Natural Disaster Evacuation 🏃‍♂️</p>
          <p className="text-d-text-normal mb-2">
            In a natural disaster (like an earthquake), clear pathways can suddenly become blocked by debris. 
-           I built a simulation to analyze how different **Pathfinding Algorithms** perform when guiding survivors to a muster point in a changing environment.
+           I built a simulation to analyze how different <strong>Pathfinding Algorithms</strong> perform when guiding survivors to a muster point in a changing environment.
          </p>
       </Message>
 
@@ -96,10 +96,10 @@ const PathFindingChannel = () => {
          <div className="bg-d-background-secondary p-4 rounded border-l-4 border-green-500 my-2">
              <p className="text-xs font-bold text-green-400 uppercase mb-1">⚡ Optimization</p>
              <p className="text-sm text-d-text-normal">
-               Standard A* initializes all nodes to "Infinity" at the start, which is slow ($O(V)$). 
+               Standard A* initializes all nodes to "Infinity" at the start, which is slow O(V). 
                I <strong>refactored the algorithm</strong> to treat unknown nodes as infinity dynamically. 
                <br/><br/>
-               This reduced the upfront memory cost to $O(1)$ and allowed the algorithm to rescue <strong>15 survivors</strong> compared to Dijkstra's 1 survivor in the same timeframe[cite: 317, 325, 358].
+               This reduced the upfront memory cost to O(1) and allowed the algorithm to rescue <strong>15 survivors</strong> compared to Dijkstra's 1 survivor in the same timeframe.
              </p>
          </div>
       </Message>
