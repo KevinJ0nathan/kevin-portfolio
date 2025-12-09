@@ -21,7 +21,7 @@ const ChannelList = ({activeChannel, onChannelSelect}) => {
           --- PROJECTS ---
         </div>
 
-        <ChannelItem channelTitle="dentalign-helpdesk" 
+        <ChannelItem channelTitle="dental-helpdesk" 
           isActive={activeChannel === "helpdesk"} 
           onClick={() => onChannelSelect("helpdesk")}/>
         <ChannelItem channelTitle="shoply" 

@@ -18,24 +18,30 @@ const HelpDeskChannel = () => {
       <div className="flex-1 overflow-y-auto overflow-x-hidden pb-4 pt-4 custom-scrollbar">
       
       {/* 1. Hero - SaaS / Corporate Theme */}
-      <ChannelHero channelName="dentalign-helpdesk" />
+      <ChannelHero channelName="dental-helpdesk" />
 
        <DateDivider date="June 4, 2025" />
 
       {/* 2. Intro: The Real-World Context */}
       <Message 
-         avatar={kevinAvatar} 
-         username="Kevin" 
-         roleColor="#faa61a" 
-         timestamp="04/06/2025 12:00 PM"
+          avatar={kevinAvatar} 
+          username="Kevin" 
+          roleColor="#faa61a" 
+          timestamp="04/06/2025 12:00 PM"
       >
-         <p className="font-bold text-lg text-white mb-2">Project Brief: Dentalign Clinic System 🏥</p>
-         <p className="text-d-text-normal mb-2">
-           I engineered a custom <strong>Helpdesk Ticketing System</strong> for <span className="text-white font-bold">Dentalign</span>, a dental clinic in South Jakarta.
-         </p>
-         <p className="text-d-text-normal">
-           The clinic was struggling with managing patient complaints via WhatsApp. I built a centralized web platform to streamline support requests for Customers, Staff, and Admins.
-         </p>
+          <p className="font-bold text-lg text-white mb-2">Project Brief: Dentalign Case Study (Unofficial) 🏥</p>
+          
+          <p className="text-d-text-normal mb-2">
+            I engineered a <strong>functional prototype</strong> of a <strong>Helpdesk Ticketing System</strong> using <span className="text-white font-bold">Dentalign</span> (a real clinic in Jakarta) as a case study for the brand identity.
+          </p>
+          
+          <p className="text-d-text-normal mb-2">
+            <em>**Note: This is an independent concept project and is not officially affiliated with the clinic. I used their branding to demonstrate my ability to build complex full-stack solutions.**</em>
+          </p>
+
+          <p className="text-d-text-normal">
+            The goal was to solve a common industry struggle: managing patient complaints via WhatsApp. I built this centralized web platform to streamline support requests for Customers, Staff, and Admins.
+          </p>
       </Message>
 
       {/* 3. Tech Stack & Architecture Embed */}
@@ -115,7 +121,7 @@ const HelpDeskChannel = () => {
             <img 
                src={loginVisual} 
                alt="Login Interface" 
-               className="rounded-lg border border-d-background-tertiary hover:scale-105 transition-transform cursor-pointer md:h-82" 
+               className="rounded-lg border border-d-background-tertiary hover:scale-105 transition-transform cursor-pointer md:h-68" 
             />
          </div>
       </Message>
@@ -132,7 +138,7 @@ const HelpDeskChannel = () => {
          </p>
 
          <FileAttachment 
-            fileName="Dentalign_System_Docs.pdf"
+            fileName="Dental_Helpdesk_Report.pdf"
             fileSize="4.7 MB"
             fileUrl={dentalignReport}
             type="pdf"
@@ -140,7 +146,7 @@ const HelpDeskChannel = () => {
       </Message>
 
     </div>
-     <MessageInput channelName={"dentalign-helpdesk"}/>
+     <MessageInput channelName={"dental-helpdesk"}/>
     </div>
   );
 };

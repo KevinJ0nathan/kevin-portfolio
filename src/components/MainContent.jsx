@@ -25,7 +25,7 @@ const MainContent = ({ activeChannel, toggleMenu, toggleMembers, isLeftMenuOpen,
     "welcome-and-about": "Learn more about Kevin and his journey",
     "experience": "My professional history",
     "shoply": "Full-stack E-commerce platform with 3NF Normalized Database",
-    "helpdesk": "Enterprise Ticketing System | MERN Stack 🦷",
+    "helpdesk": "Clinic Management System | MERN Stack 🦷",
     "hishot":"Event Landing Page | Cyber Security Theme 🔐",
     "bot-detection":"Machine Learning Classification | Python 🐍",
     "pathfinding":"Disaster Evacuation Algorithms | Python & Pygame 🧠" 
