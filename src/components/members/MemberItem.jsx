@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line no-unused-vars
 const MemberItem = ({ icon: Icon, color, name, status = "online", onClick }) => {
   
   // Helper to get the correct status color

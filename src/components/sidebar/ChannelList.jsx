@@ -1,5 +1,4 @@
 import ChannelItem from "./ChannelItem"
-import { useState } from "react"
 
 const ChannelList = ({activeChannel, onChannelSelect}) => {
 

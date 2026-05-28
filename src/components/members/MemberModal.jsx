@@ -3,6 +3,14 @@ import ReactDOM from 'react-dom'
 
 const MemberModal = ({ member, onClose }) => {
   const [isClosing, setIsClosing] = useState(false);
+  const tagNumber = React.useMemo(() => {
+    let hash = 0;
+    const name = member.name || "";
+    for (let i = 0; i < name.length; i++) {
+      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return 1000 + (Math.abs(hash) % 9000);
+  }, [member.name]);
   
   const ANIMATION_DURATION = 40;
 
@@ -74,7 +82,7 @@ const MemberModal = ({ member, onClose }) => {
               {/* Name and Details */}
               <h2 className="text-white text-2xl font-bold mb-1">{member.name}</h2>
               <div className="text-[#b9bbbe] text-sm font-medium mb-4 uppercase">
-                {member.name} #{Math.floor(Math.random() * 9000) + 1000}
+                {member.name} #{tagNumber}
               </div>
 
               <div className="h-[1px] bg-[#2f3136] w-full mb-4"></div>

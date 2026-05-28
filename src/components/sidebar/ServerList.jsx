@@ -1,4 +1,4 @@
-import himtiPortrait from '../assets/himti_portrait_square.jpg';
+import himtiPortrait from '../../assets/himti_portrait_square.jpg';
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 

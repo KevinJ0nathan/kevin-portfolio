@@ -1,10 +1,10 @@
 import React from 'react';
-import Message from './Message';
-import ChannelHero from './ChannelHero';
-import DiscordEmbed from './DiscordEmbed';
-import FileAttachment from './FileAttachment';
-import MessageInput from './MessageInput';
-import DateDivider from './DateDivider';
+import Message from '../components/Message';
+import ChannelHero from '../components/ChannelHero';
+import DiscordEmbed from '../components/DiscordEmbed';
+import FileAttachment from '../components/FileAttachment';
+import MessageInput from '../components/MessageInput';
+import DateDivider from '../components/DateDivider';
 
 import kevinAvatar from '../assets/kevin_pfp.jpg';
 import gridVisual from '../assets/projects/pathfinding/gridVisual.png';

@@ -9,8 +9,18 @@ import HelpDeskChannel from './HelpDeskChannel';
 import HishotChannel from './HishotChannel';
 import BotDetectionChannel from './BotDetectionChannel';
 import PathFindingChannel from './PathFindingChannel';
+import SkeletonLoader from '../components/SkeletonLoader';
 
-const MainContent = ({ activeChannel, toggleMenu, toggleMembers, isLeftMenuOpen, isRightMenuOpen }) => {
+const MainContent = ({ activeChannel, toggleMenu, toggleMembers }) => {
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 450);
+    return () => clearTimeout(timer);
+  }, [activeChannel]);
 
   // Checking for swipes
   const swipeHandlers = useSwipeable({
@@ -69,21 +79,27 @@ const MainContent = ({ activeChannel, toggleMenu, toggleMembers, isLeftMenuOpen,
         <div className="flex-1 overflow-y-auto overflow-x-hidden  text-d-text-normal custom-scrollbar relative">
            
            {/* RENDER CHANNEL CONTENT BASED ON STATE */}
-           {activeChannel === 'welcome-and-about' && <WelcomeChannel />}
-           {activeChannel === 'experience' && <ExperienceChannel/>}
-           {activeChannel === 'shoply' && <ShoplyChannel />}
-           {activeChannel === 'helpdesk' && <HelpDeskChannel/>}
-           {activeChannel === 'hishot' && <HishotChannel/>}
-           {activeChannel === "bot-detection" && <BotDetectionChannel/> }
-           {activeChannel === "pathfinding" && <PathFindingChannel/> }
+           {isLoading ? (
+             <SkeletonLoader />
+           ) : (
+             <>
+               {activeChannel === 'welcome-and-about' && <WelcomeChannel />}
+               {activeChannel === 'experience' && <ExperienceChannel/>}
+               {activeChannel === 'shoply' && <ShoplyChannel />}
+               {activeChannel === 'helpdesk' && <HelpDeskChannel/>}
+               {activeChannel === 'hishot' && <HishotChannel/>}
+               {activeChannel === "bot-detection" && <BotDetectionChannel/> }
+               {activeChannel === "pathfinding" && <PathFindingChannel/> }
 
-           {!['welcome-and-about', 'experience','shoply', 'helpdesk', 'hishot', 'bot-detection', 'pathfinding'].includes(activeChannel) && (
-            <div className="flex flex-col items-center justify-center h-full text-d-text-muted opacity-75">
-              <div className="text-4xl mb-2">🚧</div>
-              <p>You are currently viewing #{activeChannel}</p>
-              <p className="text-sm">This channel is under construction.</p>
-            </div>
-            )}
+               {!['welcome-and-about', 'experience','shoply', 'helpdesk', 'hishot', 'bot-detection', 'pathfinding'].includes(activeChannel) && (
+                <div className="flex flex-col items-center justify-center h-full text-d-text-muted opacity-75">
+                  <div className="text-4xl mb-2">🚧</div>
+                  <p>You are currently viewing #{activeChannel}</p>
+                  <p className="text-sm">This channel is under construction.</p>
+                </div>
+                )}
+             </>
+           )}
         </div>
     </div>
   );
